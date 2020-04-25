@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MAD_NEW</string>
+
+
+    <string name="Form"><b>ACTIVITY FORM</b></string>
+    <string name="activity_no">Activity No</string>
+    <string name="Announcement">Announcement</string>
+    <string name="announcement_no">Announcement No</string>
+    <string name="due_date">Due Date</string>
+    <string name="subject">Subject</string>
+    <string name="des">Description</string>
+    <string name="form">Activity List</string>
+    <string name="activity_list">ACTIVITY LIST</string>
+    <string name="button">Edit</string>
+    <string name="button1">Delete</string>
+</resources>
