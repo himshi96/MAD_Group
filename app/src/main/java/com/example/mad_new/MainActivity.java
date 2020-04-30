@@ -1,16 +1,25 @@
 package com.example.mad_new;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,20 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private Button submit;
     DatabaseReference mad;
     BrighterBee brighterBee;
+    ListView listView;
+    ArrayList<String> arrayList = new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_main);
-        //setContentView(R.layout.activity_homepage);
-        // setContentView(R.layout.activity_signup_page);
-        // setContentView(R.layout.activity_login_page);
-        // setContentView(R.layout.activity_input_marks);
-        // setContentView(R.layout.activity_view_marks);
-        //setContentView(R.layout.activity_class__marks__table);
         setContentView(R.layout.activity_himshi_1);
-        //setContentView(R.layout.activity_himshi_2);
-
 
         editText5 = (EditText) findViewById(R.id.editText5);
         editText6 = (EditText)findViewById(R.id.editText6);
@@ -42,9 +45,46 @@ public class MainActivity extends AppCompatActivity {
         editText8 = (EditText)findViewById(R.id.editText8);
         submit = (Button) findViewById(R.id.submit);
         brighterBee = new BrighterBee();
-        mad = FirebaseDatabase.getInstance().getReference().child("BrighterBee");
 
-        submit.setOnClickListener(new View.OnClickListener() {
+         mad = FirebaseDatabase.getInstance().getReference().child("BrighterBee");
+         listView=(ListView)findViewById(R.id.listView);
+         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList);
+         listView.setAdapter(arrayAdapter);
+
+                 mad.addChildEventListener(new ChildEventListener() {
+
+                                    @Override
+                                         public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                             String value = dataSnapshot.getValue(BrighterBee.class).toString();
+                                             arrayList.add(value);
+                                             arrayAdapter.notifyDataSetChanged();
+
+
+                                         }
+
+                                         @Override
+                                         public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                         }
+
+                                         @Override
+                                         public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                                         }
+
+                                         @Override
+                                         public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                                         }
+
+                                         @Override
+                                         public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                         }
+                                     });
+
+         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {

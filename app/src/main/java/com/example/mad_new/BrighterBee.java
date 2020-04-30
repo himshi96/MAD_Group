@@ -9,6 +9,13 @@ public class BrighterBee {
     private String subject;
     private String description;
 
+    public BrighterBee(Integer no, String due_date, String subject, String description) {
+        this.no = no;
+        this.due_date = due_date;
+        this.subject = subject;
+        this.description = description;
+    }
+
     public BrighterBee() {
     }
 
@@ -42,6 +49,10 @@ public class BrighterBee {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String toString (){
+        return  this + ""+no+""+due_date+""+subject+""+description;
     }
 }
 

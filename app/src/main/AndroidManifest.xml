@@ -14,8 +14,8 @@
         <activity android:name=".P_new1" />
         <activity android:name=".Praneeth_1" />
         <activity android:name=".announcement_page" />
-        <activity android:name=".himshi_2" />
-        <activity android:name=".Himshi_1" />
+        <activity android:name=".himshi_2" ></activity>
+        <activity android:name=".Himshi_1" ></activity>
         <activity android:name=".Class_Marks_Table" />
         <activity android:name=".View_marks" />
         <activity android:name=".Input_marks" />
