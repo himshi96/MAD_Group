@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
        // setContentView(R.layout.activity_signup_page);
        // setContentView(R.layout.activity_login_page);
        // setContentView(R.layout.activity_input_marks);
-       // setContentView(R.layout.activity_view_marks);
-       // setContentView(R.layout.activity_class__marks__table);
-       // setContentView(R.layout.activity_himshi_1);
-       // setContentView(R.layout.activity_himshi_2);
+       setContentView(R.layout.activity_view_marks);
+        setContentView(R.layout.activity_class__marks__table);
+       setContentView(R.layout.activity_himshi_1);
+       setContentView(R.layout.activity_himshi_2);
 
 
     }
